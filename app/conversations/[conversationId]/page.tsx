@@ -1,14 +1,16 @@
-import EmptyState from "@/app/components/EmptyState";
-import getConversationById from "../../actions/getConversationById";
-import getMessages from "../../actions/getMessages";
+import getConversationById from "@/app/actions/getConversationById";
+import getMessages from "@/app/actions/getMessages";
+
+import Header from "./components/Header";
 import Body from "./components/Body";
 import Form from "./components/Form";
-import Header from "./components/Header";
+import EmptyState from "@/app/components/EmptyState";
+
 interface IParams {
   conversationId: string;
 }
 
-const ConversationId = async ({ params }: { params: IParams }) => {
+const ChatId = async ({ params }: { params: IParams }) => {
   const conversation = await getConversationById(params.conversationId);
   const messages = await getMessages(params.conversationId);
 
@@ -26,11 +28,11 @@ const ConversationId = async ({ params }: { params: IParams }) => {
     <div className="lg:pl-80 h-full">
       <div className="h-full flex flex-col">
         <Header conversation={conversation} />
-        <Body />
+        <Body initialMessages={messages} />
         <Form />
       </div>
     </div>
   );
 };
 
-export default ConversationId;
+export default ChatId;
