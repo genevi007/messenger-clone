@@ -5,7 +5,7 @@ import { User } from "@prisma/client";
 
 import useRoutes from "@/app/hooks/useRoutes";
 
-import Avatar from "@/app/(site)/components/Avatar";
+import Avatar from "@/app/components/Avatar";
 import DesktopItem from "./DesktopItem";
 import SettingsModal from "./SettingsModal";
 
